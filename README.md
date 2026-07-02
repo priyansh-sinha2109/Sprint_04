@@ -26,7 +26,7 @@ The application generates professional and personalized cover letters based on u
 - Vite
 - JavaScript (ES6)
 - CSS3
-- Google Gemini API
+- Open Ai
 - React Markdown
 
 ---
