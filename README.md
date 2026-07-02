@@ -1,6 +1,6 @@
 # AI Cover Letter Generator
 
-An AI-powered Cover Letter Generator built with **React**, **Vite**, and **Google Gemini API**.
+An AI-powered Cover Letter Generator built with **React**, **Vite**, and **Open Ai API**.
 
 The application generates professional and personalized cover letters based on user input such as candidate name, target company, job role, skills, and uploaded resume.
 
@@ -8,7 +8,7 @@ The application generates professional and personalized cover letters based on u
 
 ## Features
 
-- AI-generated Cover Letters using Google Gemini
+- AI-generated Cover Letters using Open Ai
 - Resume PDF Upload
 - Resume Text Extraction
 - Dynamic Prompt Engineering
@@ -82,7 +82,7 @@ npm run dev
 Create a `.env` file.
 
 ```env
-VITE_GEMINI_API_KEY=YOUR_API_KEY
+VITE_OPENROUTER_API_KEY=YOUR_API_KEY
 ```
 
 ---
@@ -93,7 +93,7 @@ VITE_GEMINI_API_KEY=YOUR_API_KEY
 2. User uploads resume (optional).
 3. Resume text is extracted.
 4. User data is combined with resume content.
-5. Prompt is sent to Google Gemini.
+5. Prompt is sent to Open Ai.
 6. Open Ai generates a professional cover letter.
 7. User can copy the generated letter.
 
