@@ -1,16 +1,119 @@
-# React + Vite
+# AI Cover Letter Generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An AI-powered Cover Letter Generator built with **React**, **Vite**, and **Google Gemini API**.
 
-Currently, two official plugins are available:
+The application generates professional and personalized cover letters based on user input such as candidate name, target company, job role, skills, and uploaded resume.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- AI-generated Cover Letters using Google Gemini
+- Resume PDF Upload
+- Resume Text Extraction
+- Dynamic Prompt Engineering
+- Copy to Clipboard
+- Loading Indicator
+- Responsive User Interface
+- Secure API Key using Environment Variables
+- Markdown Rendering
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech Stack
+
+- React
+- Vite
+- JavaScript (ES6)
+- CSS3
+- Google Gemini API
+- React Markdown
+
+---
+
+## Folder Structure
+
+```
+src/
+│
+├── components/
+│   ├── Form.jsx
+│   ├── Output.jsx
+│   ├── Loader.jsx
+│   ├── ResumeUpload.jsx
+│   └── Button.jsx
+│
+├── utils/
+│   ├── gemini.js
+│   └── helpers.js
+│
+├── App.jsx
+├── App.css
+├── index.css
+└── main.jsx
+```
+
+---
+
+## Installation
+
+Clone the repository
+
+```bash
+git clone <repository-url>
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Run the application
+
+```bash
+npm run dev
+```
+
+---
+
+## Environment Variables
+
+Create a `.env` file.
+
+```env
+VITE_GEMINI_API_KEY=YOUR_API_KEY
+```
+
+---
+
+## Project Workflow
+
+1. User enters personal information.
+2. User uploads resume (optional).
+3. Resume text is extracted.
+4. User data is combined with resume content.
+5. Prompt is sent to Google Gemini.
+6. Open Ai generates a professional cover letter.
+7. User can copy the generated letter.
+
+---
+
+## Security
+
+- API keys are stored using `.env`
+- `.env` is ignored using `.gitignore`
+- Sensitive credentials are never committed to GitHub.
+
+---
+
+## Future Improvements
+
+- Multiple cover letter templates
+- AI Providers
+
+---
+
+## Author
+
+Priyansh Sinha
