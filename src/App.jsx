@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Form from "./components/Form";
 import Output from "./components/Output";
 import Loader from "./components/Loader";
-import { generateCoverLetter } from "./utils/gemini";
+import { generateCoverLetter } from "./utils/openai";
 import { generateFallbackCoverLetter } from "./utils/helpers";
 import "./App.css";
 
@@ -31,14 +31,15 @@ function App() {
     } catch (err) {
       console.error("Generation error:", err);
 
-      const quotaError =
+      const apiError =
         err.message?.toLowerCase().includes("quota") ||
         err.message?.toLowerCase().includes("rate limit") ||
         err.message?.toLowerCase().includes("billing") ||
-        err.message?.toLowerCase().includes("exceeded your current quota") ||
-        err.message?.toLowerCase().includes("limit: 0");
+        err.message?.toLowerCase().includes("payment") ||
+        err.message?.toLowerCase().includes("credit") ||
+        err.message?.toLowerCase().includes("402");
 
-      if (quotaError) {
+      if (apiError) {
         const fallbackResult = generateFallbackCoverLetter({
           name: formData.name,
           role: formData.role,
@@ -48,8 +49,9 @@ function App() {
         });
 
         setCoverLetter(fallbackResult);
+
         setInfoMessage(
-          "Gemini AI quota is currently unavailable, so a smart local fallback cover letter was generated instead.",
+          "OpenAI is currently unavailable or your OpenRouter credits have been exhausted. A smart local fallback cover letter has been generated instead.",
         );
       } else {
         setError(err.message || "Something went wrong. Please try again.");
@@ -68,9 +70,11 @@ function App() {
   return (
     <div className="app-container">
       <header className="app-header">
-        <div className="header-badge">✦ Powered by Google Gemini AI</div>
+        <div className="header-badge">✨ Powered by OpenAI GPT-4.1 Mini</div>
+
         <h1>AI Cover Letter Generator</h1>
-        <p>Create personalized, professional cover letters in seconds</p>
+
+        <p>Create personalized, professional cover letters in seconds.</p>
       </header>
 
       <Form onGenerate={handleGenerate} isLoading={isLoading} />
@@ -78,7 +82,7 @@ function App() {
       {infoMessage && (
         <div
           style={{
-            background: "rgba(0, 184, 148, 0.1)",
+            background: "rgba(0, 184, 148, 0.10)",
             border: "1px solid rgba(0, 184, 148, 0.35)",
             borderRadius: "12px",
             padding: "16px 20px",
@@ -107,7 +111,8 @@ function App() {
 
       <footer className="app-footer">
         <p>
-          Built with React + Google Gemini AI &nbsp;|&nbsp; Sprint 4 Project
+          Built with React + OpenAI GPT-4.1 Mini (via OpenRouter) &nbsp;|&nbsp;
+          Sprint 4 Project
         </p>
       </footer>
     </div>
