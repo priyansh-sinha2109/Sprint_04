@@ -44,7 +44,7 @@ src/
 │   └── Button.jsx
 │
 ├── utils/
-│   ├── gemini.js
+│   ├── openai.js
 │   └── helpers.js
 │
 ├── App.jsx
